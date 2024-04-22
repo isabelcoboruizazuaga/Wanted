@@ -1,113 +1,69 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class TaggedNPCBehaviour : MonoBehaviour
 {
-    [SerializeField] Transform path;
-    [SerializeField] int childrenIndex;
     [SerializeField] Vector3 destination;
     [SerializeField] Vector3 min, max;
-    [SerializeField] float detectionRange;
+    public float detectionRange = 4f;
 
-    public bool _running = false;
-    public bool running
+    private NavMeshAgent agent;
+    private GameObject player;
+    private bool isRunning = false;
+
+    void Start()
     {
-        get { return _running; }
-        set
-        {
-            if (value == _running)
-                return;
+        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
 
-            _running = value;
-            if (_running)
-            {
-                RunAway();
-            }
-            else
-            {
-                GetComponent<NavMeshAgent>().speed = 2;
-            }
-        }
-    }
 
-    private void Start()
-    {
-        // destination = path.GetChild(childrenIndex).position;
         destination = RandomDestination();
-        GetComponent<NavMeshAgent>().SetDestination(destination);
+        agent.SetDestination(destination);
+
+        //StartCoroutine(IncreaseSpeedPerSecond(5));
     }
 
     private void Update()
     {
-        CheckPlayer();
+        //Check player and enemy closeness
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (!running) { RandomMovement(); }
-    }
-
-    private void CheckPlayer()
-    {
-        var playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        var thisPos = transform.position;
-
-        //It has to be inside the distance range
-        if ((Mathf.Abs(playerPos.z - thisPos.z) < detectionRange) && (Mathf.Abs(playerPos.x - thisPos.x) < detectionRange))
+        if(distance < detectionRange)
         {
-            running = true;
+            //Make enemy run away
+            Vector3 dirToPlayer= transform.position - player.transform.position;
+            Vector3 newPos= transform.position + dirToPlayer;
+            destination = newPos;
 
+            agent.SetDestination(newPos);
         }
         else
         {
-            running = false;
+            RandomMovement();
+        }
+        
+    }
+    IEnumerator IncreaseSpeedPerSecond(float waitTime)
+    {
+        //while agent's speed is less than the speedCap
+        while (agent.speed < 30)
+        {
+            //wait "waitTime"
+            yield return new WaitForSeconds(waitTime);
+            //add 0.5f to currentSpeed every loop 
+            agent.speed = agent.speed + 0.5f;
         }
     }
-    private void RunAway()
-    {
-        destination = RandomFarDestination();
-        GetComponent<NavMeshAgent>().speed = 20;
-        GetComponent<NavMeshAgent>().SetDestination(destination);
 
-        //If it's near the new destination it stops running
-        /*if (Vector3.Distance(transform.position, destination) < 1.5f)
-        {
-            running = false;
-        }*/
-    }
-
-    private void RandomMovement()
+        private void RandomMovement()
     {
         if (Vector3.Distance(transform.position, destination) < 1.5f)
         {
             destination = RandomDestination();
-            GetComponent<NavMeshAgent>().SetDestination(destination);
+            agent.SetDestination(destination);
         }
 
-    }
-    Vector3 RandomFarDestination()
-    {
-        var playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        var thisPos = transform.position;
-
-        //Tenemos nuestra posición y la del player, hay que ver si estas delante o detras del player, si estas frente a el debes correr hacia adelante, si no hacia atras
-        //entonces: 
-        /* si px= 1 y mx= 2 -> estás frente al player, corre hacia x= 3, 4, etc
-         * si px= 1 y mx= -1 -> estás tras el player, corre hacia x= -2, -3, etc
-         * si px= -1 y mx= 2 -> estás frente al player, ve a x= 3,4, etc
-         * si px = -1 y mx= -2 -> estás tras el player, ve a x= -3, -4, etc
-         */
-
-
-        float posx = transform.position.x;
-        float posz = transform.position.z;
-
-        //The new position must be generated inside world bounds
-        if (posx + 10 > max.x) { posx -= 20; }
-        if (posx - 10 < min.x) { posx += 20; }
-
-        if (posz + 10 > max.z) { posz -= 20; }
-        if (posz - 10 < min.z) { posz += 20; }
-
-        //Generate new random position in a 5 meters range of npc
-        return new Vector3(Random.Range(posx - 10, posx + 10), 0, Random.Range(posz - 10, posz + 10));
     }
 
     Vector3 RandomDestination()

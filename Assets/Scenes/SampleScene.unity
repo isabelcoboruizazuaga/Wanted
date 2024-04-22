@@ -473,13 +473,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a52a6ce6ca920bb4cb7bdbc4949562a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
-  childrenIndex: 0
   destination: {x: 0, y: 0, z: 0}
   min: {x: 0, y: 0, z: 0}
   max: {x: 0, y: 0, z: 0}
   detectionRange: 3
-  _running: 0
 --- !u!195 &554108209
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -490,7 +487,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
