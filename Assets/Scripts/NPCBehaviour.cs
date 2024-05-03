@@ -10,28 +10,19 @@ public class NPCBehaviour : MonoBehaviour
 
     private void Start()
     {
-        // destination = path.GetChild(childrenIndex).position;
+        StartMoving();
+        
+    }
+
+    public void StartMoving()
+    {
         destination = RandomDestination();
         GetComponent<NavMeshAgent>().SetDestination(destination);
     }
 
     private void Update()
     {
-        //Patroll();
-        //FollowClick();
-        //RandomPatroll();
         RandomMovement();
-    }
-    private void RandomPatroll()
-    {
-        if (Vector3.Distance(transform.position, destination) < Random.Range(1, 1.5f))
-        {
-            childrenIndex++;
-            childrenIndex = Random.Range(0, path.childCount);
-
-            destination = path.GetChild(childrenIndex).position;
-            GetComponent<NavMeshAgent>().SetDestination(destination);
-        }
     }
 
     private void RandomMovement()
@@ -60,33 +51,5 @@ public class NPCBehaviour : MonoBehaviour
 
         //Generate new random position in a 5 meters range of npc
         return new Vector3(Random.Range(posx-5, posx+5), 0, Random.Range(posz-5, posz+5));
-    }
-
-    private void Patroll()
-    {
-        if (Vector3.Distance(transform.position, destination) < 1.5f)
-        {
-            childrenIndex++;
-            childrenIndex = childrenIndex % path.childCount;
-
-            destination = path.GetChild(childrenIndex).position;
-            GetComponent<NavMeshAgent>().SetDestination(destination);
-        }
-    }
-
-    private void FollowClick()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = new RaycastHit();
-
-            if (Physics.Raycast(ray, out hit, 1000))
-            {
-                GetComponent<NavMeshAgent>().SetDestination(hit.point);
-                GetComponent<NavMeshAgent>().speed = 10;
-            }
-
-        }
     }
 }
