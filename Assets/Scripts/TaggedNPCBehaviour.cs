@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,13 +6,17 @@ public class TaggedNPCBehaviour : MonoBehaviour
     [SerializeField] Vector3 destination;
     [SerializeField] Vector3 min, max;
     public float detectionRange = 4f;
+    public float runRange = 3.9f;
 
     private NavMeshAgent agent;
     private GameObject player;
-    private bool isRunning = false;
+    private Animator anim;
+
+    private bool playerSeen=false;
 
     void Start()
     {
+         anim = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -21,7 +24,6 @@ public class TaggedNPCBehaviour : MonoBehaviour
         destination = RandomDestination();
         agent.SetDestination(destination);
 
-        //StartCoroutine(IncreaseSpeedPerSecond(5));
     }
 
     private void Update()
@@ -29,34 +31,35 @@ public class TaggedNPCBehaviour : MonoBehaviour
         //Check player and enemy closeness
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if(distance < detectionRange)
+        if (distance < detectionRange)
         {
-            //Make enemy run away
-            Vector3 dirToPlayer= transform.position - player.transform.position;
-            Vector3 newPos= transform.position + dirToPlayer;
-            destination = newPos;
+            if(!playerSeen)
+            {
+                //anim huir
+                Debug.Log("jump");
+                anim.SetTrigger("SeenPlayer");
+                playerSeen = true;
+            }
+            if(distance < runRange)
+            {
+                //Make enemy run away
+                Vector3 dirToPlayer = transform.position - player.transform.position;
+                Vector3 newPos = transform.position + dirToPlayer;
+                destination = newPos;
 
-            agent.SetDestination(newPos);
+                agent.SetDestination(newPos);
+            }
+                 
         }
         else
-        {
+        { 
+            playerSeen = false;
             RandomMovement();
         }
-        
-    }
-    IEnumerator IncreaseSpeedPerSecond(float waitTime)
-    {
-        //while agent's speed is less than the speedCap
-        while (agent.speed < 30)
-        {
-            //wait "waitTime"
-            yield return new WaitForSeconds(waitTime);
-            //add 0.5f to currentSpeed every loop 
-            agent.speed = agent.speed + 0.5f;
-        }
+
     }
 
-        private void RandomMovement()
+    private void RandomMovement()
     {
         if (Vector3.Distance(transform.position, destination) < 1.5f)
         {
