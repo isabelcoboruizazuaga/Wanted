@@ -53,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4003774543066158470}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -65,8 +65,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 01306f8913a5d43478439679f92fce23, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,6 +181,7 @@ GameObject:
   - component: {fileID: 3317380949081388931}
   - component: {fileID: 7182339211959007456}
   - component: {fileID: 5396960781151778060}
+  - component: {fileID: 5065429997151794607}
   m_Layer: 0
   m_Name: Skin
   m_TagString: Untagged
@@ -232,7 +232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 01306f8913a5d43478439679f92fce23, type: 2}
+  - {fileID: 2100000, guid: 8faa7b8426cbe8c4eb5961d24fe325f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -254,3 +254,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5065429997151794607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307099052643634437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce564d0a87ed5a4684340dc65b7f709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dfaultsConfig: {fileID: 0}
+  dfaultsMaterial: {fileID: 2100000, guid: 8faa7b8426cbe8c4eb5961d24fe325f4, type: 2}
+  materialList: []
+  configList:
+  - {fileID: 11400000, guid: fc6a1a9deb1c10c4390441e35e91482a, type: 2}
+  - {fileID: 11400000, guid: f9b3a0a54528d4a44ab1c673c482bb7d, type: 2}
+  - {fileID: 11400000, guid: aaf75db74cdfcae4b800f581bca55f74, type: 2}
+  - {fileID: 11400000, guid: a98f80b01ac609a49876f287984f0271, type: 2}
+  - {fileID: 11400000, guid: e22186dee39fe164aaebee8d81cda8b5, type: 2}
+  - {fileID: 11400000, guid: ad4a71760133e304eb99d682a69faaf0, type: 2}
+  - {fileID: 11400000, guid: efb69c3c9eee168418f5cd03eec1d10c, type: 2}
+  - {fileID: 11400000, guid: c82045d73cdf8a74f81037cd22027783, type: 2}
+  - {fileID: 11400000, guid: 4f6059b2da1805d48a57091d9586aa14, type: 2}
+  - {fileID: 11400000, guid: 5f9b07084af1b4d4e8f5523c74bd217c, type: 2}
+  - {fileID: 11400000, guid: bb1a8448db5b17f4cb0cc9a18eb835d7, type: 2}

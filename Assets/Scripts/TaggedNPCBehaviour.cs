@@ -35,8 +35,7 @@ public class TaggedNPCBehaviour : MonoBehaviour
         {
             if(!playerSeen)
             {
-                //anim huir
-                Debug.Log("jump");
+                //anim escape
                 anim.SetTrigger("SeenPlayer");
                 playerSeen = true;
             }

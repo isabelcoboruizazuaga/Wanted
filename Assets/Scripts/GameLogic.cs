@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private Canvas wantedCanvas;
-    [SerializeField] private GameObject NPC;
+    [SerializeField] public GameObject[] NPCsList;
     [SerializeField] private GameObject EnemyNPC;
     [SerializeField] private GameObject player;
     [SerializeField] private Camera initialCamera;
@@ -67,7 +67,6 @@ public class GameLogic : MonoBehaviour
 
 
     }
-
     private void GenerateNPCs()
     {
         for (int i = 0; i < npcNumber; i++)
@@ -76,7 +75,7 @@ public class GameLogic : MonoBehaviour
 
             if (NPCs.Count < npcNumber)
             {
-                NPCs.Add(Instantiate(NPC, position, Quaternion.identity));
+                NPCs.Add(Instantiate(NPCsList[Random.Range(0, NPCsList.Length)], position, Quaternion.identity));
             }
             else
             {

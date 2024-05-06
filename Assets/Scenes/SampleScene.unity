@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -430,6 +430,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331683303}
   m_CullTransparentMesh: 1
+--- !u!1001 &368774121
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468160, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468219, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_Name
+      value: Dcap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142739048637468219, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2f83fb8fb450694b8f746764fc06f5d, type: 3}
 --- !u!1 &448451812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,7 +1644,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wantedCanvas: {fileID: 966930800}
-  NPC: {fileID: 861743659306343879, guid: b72c09c646f5aa348905e1287cf13c22, type: 3}
+  NPCsList:
+  - {fileID: 861743659306343879, guid: b72c09c646f5aa348905e1287cf13c22, type: 3}
+  - {fileID: 861743659306343879, guid: 8657a47e8919e5d499de232bb2b41c35, type: 3}
+  - {fileID: 861743659306343879, guid: c0278727d1df9a3419ed2bfb31191167, type: 3}
+  - {fileID: 861743659306343879, guid: 1836c0d4d7e6a194db3f79b2d39c507b, type: 3}
+  - {fileID: 861743659306343879, guid: 1afa990c9a4c1ad41b7886387826d480, type: 3}
+  - {fileID: 861743659306343879, guid: afc9bab3560a2b94aab1efaef6a4bb4f, type: 3}
+  - {fileID: 861743659306343879, guid: ea3649d8d4a4d5242826af5f333042f1, type: 3}
+  - {fileID: 861743659306343879, guid: e7068f67b597cf94faf2b8928c68f128, type: 3}
+  - {fileID: 861743659306343879, guid: cd30b12d92866674e9437737546f9ccc, type: 3}
+  - {fileID: 861743659306343879, guid: 3da7ce9021924cc429d26b34b532e618, type: 3}
+  - {fileID: 861743659306343879, guid: 356ea770c01f61d4aac76147f386502f, type: 3}
   EnemyNPC: {fileID: 4003774543066158470, guid: f3a9db7e5f4e68048b881e192b850b14, type: 3}
   player: {fileID: 448451812}
   initialCamera: {fileID: 1137809857}
@@ -1826,3 +1898,4 @@ SceneRoots:
   - {fileID: 966930803}
   - {fileID: 1640105103}
   - {fileID: 1137809858}
+  - {fileID: 368774121}
