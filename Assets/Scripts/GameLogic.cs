@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
@@ -15,7 +16,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private int npcNumber;
 
     private List<GameObject> NPCs = new List<GameObject>();
-    private int score = -1;
+    public static int score = -1;
     private float timeLeft = 30f;
     private bool playing = false;
 
@@ -58,7 +59,7 @@ public class GameLogic : MonoBehaviour
 
             if (timeLeft < 0)
             {
-                //GameOver();
+                SceneManager.LoadScene("EndScene");
             }
         }
     }
