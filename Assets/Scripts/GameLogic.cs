@@ -16,33 +16,17 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private int npcNumber;
 
     private List<GameObject> NPCs = new List<GameObject>();
-    public static int score = -1;
     private float timeLeft = 30f;
-    private bool playing = false;
+
+
+    public static int score = -1;
+    public static bool playing = false;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timeText;
 
     [SerializeField] private Sprite[] imageList;
     [SerializeField] private Image imgWantedSmall, imgWantedBig;
-
-    private Image wantedCharImage;
-    /*
-      Dbug
-      Dcap
-      Dcode
-    Dcoy
-    Dfrag
-    Djay
-    Dplane
-    Dtox
-    Dva
-    Dvoid
-    Dznuts
-      
-     * 
-     * 
-     */
 
     // Start is called before the first frame update
     void Start()
@@ -105,12 +89,6 @@ public class GameLogic : MonoBehaviour
 
         //Enemy instantiation
         GameObject enemy = GenerateEnemy();
-        enemy.SetActive(false);
-
-        //Player controll
-        player.SetActive(false);
-
-
 
         yield return new WaitForSeconds(3);
 
@@ -119,7 +97,6 @@ public class GameLogic : MonoBehaviour
 
         //Player
         initialCamera.enabled = false;
-        player.SetActive(true);
 
         //NPCs 
         GenerateNPCs();

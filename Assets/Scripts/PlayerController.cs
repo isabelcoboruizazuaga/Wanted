@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public bool salte;
 
     public float velocidadInicial;
-    public float sprint=1;
+    public float sprint = 1;
 
 
 
@@ -34,21 +34,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Lectura cursores
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (GameLogic.playing)
         {
-            sprint = 1.5f;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            sprint = 1f;
-        }
 
-        //Salto
-        Saltar();
+            //Lectura cursores
+            x = Input.GetAxis("Horizontal");
+            y = Input.GetAxis("Vertical");
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                sprint = 1.5f;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                sprint = 1f;
+            }
+
+            //Salto
+            Saltar();
+
+        }
 
     }
 
@@ -64,9 +69,12 @@ public class PlayerController : MonoBehaviour
     //Para las fisicas
     private void FixedUpdate()
     {
-        //Movimiento
-        transform.Rotate(0, x * Time.fixedDeltaTime * velocidadRotacion, 0);
-        transform.Translate(0, 0, y * Time.fixedDeltaTime * velocidadMovimiento*sprint);
+        if (GameLogic.playing)
+        {
+            //Movimiento
+            transform.Rotate(0, x * Time.fixedDeltaTime * velocidadRotacion, 0);
+            transform.Translate(0, 0, y * Time.fixedDeltaTime * velocidadMovimiento * sprint);
+        }
     }
 
 
