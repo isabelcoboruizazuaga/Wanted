@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0, z: 0}
-  min: {x: 0, y: 0, z: 0}
-  max: {x: 0, y: 0, z: 0}
+  min: {x: -70, y: 0, z: -70}
+  max: {x: 70, y: 0, z: 70}
   detectionRange: 4
   runRange: 3.5
 --- !u!95 &1459467009246084825
@@ -268,7 +268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dfaultsConfig: {fileID: 0}
   dfaultsMaterial: {fileID: 2100000, guid: 8faa7b8426cbe8c4eb5961d24fe325f4, type: 2}
-  materialList: []
   configList:
   - {fileID: 11400000, guid: fc6a1a9deb1c10c4390441e35e91482a, type: 2}
   - {fileID: 11400000, guid: f9b3a0a54528d4a44ab1c673c482bb7d, type: 2}
