@@ -43,11 +43,15 @@ namespace Fergicide
 		private bool liveEdit;
 		private float dfaultsConfigSeed;
 
-		private void Start()
-		{
-			int random = Random.Range(0, configList.Length);
+        private void Awake()
+        {
+            int random = Random.Range(0, configList.Length);
 
             dfaultsConfig = configList[random];
+
+        }
+        private void Start()
+		{			
 
 			SetupMaterial(this);
 		}

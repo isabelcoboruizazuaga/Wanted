@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1662,6 +1662,20 @@ MonoBehaviour:
   npcNumber: 30
   scoreText: {fileID: 1769934474}
   timeText: {fileID: 331683305}
+  imageList:
+  - {fileID: 21300000, guid: 09cffa0fc464b9440b6936e67ed9e4fd, type: 3}
+  - {fileID: 21300000, guid: dd7320d82accf7e49ad5a0a7e330bb3d, type: 3}
+  - {fileID: 21300000, guid: 59138be6115a29c4ebd63fdafd6839c1, type: 3}
+  - {fileID: 21300000, guid: 7a1d6186669511446bd969b8175b29da, type: 3}
+  - {fileID: 21300000, guid: 96bde0a81b147cc4686531da26368986, type: 3}
+  - {fileID: 21300000, guid: 3378ee3f1d59e7e4d9923a7758f493aa, type: 3}
+  - {fileID: 21300000, guid: 6602c863b298d184eb0089e4b6448df9, type: 3}
+  - {fileID: 21300000, guid: b28a4af2942b8ce4ebd8ca9992181093, type: 3}
+  - {fileID: 21300000, guid: 3a83b2ed5418e59499e4a8134f87a9a4, type: 3}
+  - {fileID: 21300000, guid: 8d1350f454c5ace4e8ee3d87729e89d6, type: 3}
+  - {fileID: 21300000, guid: 22d7edb428c5529489b9a6aaac946e76, type: 3}
+  imgWantedSmall: {fileID: 1249640118}
+  imgWantedBig: {fileID: 2097518736}
 --- !u!4 &1640105103
 Transform:
   m_ObjectHideFlags: 0
