@@ -30,4 +30,27 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
+    public void SetEasy()
+    {
+        GameLogic.npcNumber = 10;
+        PlayGame();
+    }
+    public void SetNormal()
+    {
+        GameLogic.npcNumber = 30;
+        PlayGame();
+    }
+
+    public void SetHard()
+    {
+        GameLogic.npcNumber = 50;
+        PlayGame();
+    }
+
+    public void SetHell()
+    {
+        GameLogic.npcNumber = 100;
+        PlayGame();
+    }
+
 }

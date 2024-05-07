@@ -13,7 +13,6 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private GameObject EnemyNPC;
     [SerializeField] private GameObject player;
     [SerializeField] private Camera initialCamera;
-    [SerializeField] private int npcNumber;
 
     private List<GameObject> NPCs = new List<GameObject>();
     private float timeLeft = 30f;
@@ -21,6 +20,7 @@ public class GameLogic : MonoBehaviour
 
     public static int score = -1;
     public static bool playing = false;
+    public static int npcNumber = 30;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timeText;
