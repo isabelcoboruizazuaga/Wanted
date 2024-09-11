@@ -21,8 +21,21 @@ public class MenuController : MonoBehaviour
 
     public void PlayGame()
     {
+        Time.timeScale = 1;
         GameLogic.score = -1;
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        this.gameObject.SetActive(false);
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void ExitGame()

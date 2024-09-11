@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float velocidadInicial;
     public float sprint = 1;
 
+    public GameObject pauseMenu;
+
 
 
     // Start is called before the first frame update
@@ -48,6 +50,11 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 sprint = 1f;
+            }
+
+            if(Input.GetKeyDown(KeyCode.Escape)) {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
             }
 
             //Salto
